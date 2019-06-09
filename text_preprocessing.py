@@ -2,7 +2,7 @@
 """
 Created on Sat May 18 11:44:46 2019
 
-@author: Robot Hands | github.com/nvd919 | github.com/royale-streamers/ml-proof-of-concept
+@author: Robot Hands | github.com/nvd919
 """
 import time
 import pandas as pd
@@ -16,7 +16,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
-filename = 'modified messages.zip'
+filename = 'xxxx.zip'
 def preprocessing(filename):
     
     # Usecols corresponds to the messages column inside the archive. 
@@ -71,11 +71,6 @@ def preprocessing(filename):
             lemmas.append(lemma)
         return lemmas
     
-    def reduce_lengthening(words):
-    #   Deals with purposefully misspelled words like "siiiiick"
-        pattern = re.compile(r"(.)\1{2,}")
-        return pattern.sub(r"\1\1", words)
-    
     # =========================================================================
     #   The actual proprocessing stack.  The order is somewhat important, as
     #   the tokenizer will not work as intended when encountering contractions.
@@ -118,7 +113,3 @@ def preprocessing(filename):
     print("\n", data)
     print("\nPreprocessing elapsed time (seconds):", time.time() - start)
     return data
-"""These operations are proving to be somewhat problematic"""
-# NumOutofRangeError
-#data["Messages"] = data["Messages"].apply(replace_numbers)
-#data["Messages"] = data["Messages"].apply(reduce_lengthening)
