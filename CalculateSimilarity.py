@@ -15,7 +15,9 @@ model = FastText.load('Embedding.model')
 
 comparison = Flask(__name__)
 
-# You need to have Flask installed to be able to run this API.  Run it and post your sentences as JSON packets in Watchman or however you like to do that.
+# You need to have Flask installed to be able to run this API.
+# Run it and post your sentences as JSON packets in Watchman or however you like to do that.
+
 @comparison.route('/', methods = ['POST'])
 def distance():
     json = request.json
